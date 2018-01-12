@@ -14,6 +14,8 @@ This script is designed for those using the waterproof outdoor temperature senso
 It will detect the device, parse the temperature and display on the motioneye overlay (left frame). This will replace
 the camera-name field.
 
+Theres' also some login for updating Weather Underground.
+
 **Requirements:**
 
  - Raspberry Pi Model A, B, B+ or Raspberry Pi 3 
@@ -55,6 +57,7 @@ the camera-name field.
     - get_temp.py (this uses the 1wire interface to get F and C Temperatures)
     - read_pi_cpu_temp.sh (this gets the PI CPU Temp for the overlay)
     - pi-overlaysend.sh (the main script, to be run via crontab)
+      - Theres also an option to update your wunterground weather station.
     
   - Add a crontab with the time update you would prefer to call pi-overlaysend.sh
     - /2 * * * * /home/pi/pi-overlaysendscript.sh 2>&1 /dev/null
