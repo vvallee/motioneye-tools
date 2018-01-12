@@ -6,7 +6,8 @@ A few scripts that will enhance the use of motioneye on raspberry pi using GPIO 
 
 A few scripts that will enhance the use of motioneye on raspberry pi using GPIO sensors
 
-**send_overlay.pl**
+**pi_overlaysend.sh**
+
 
 This script is designed for those using the waterproof outdoor temperature sensor DS18B20
 
@@ -24,13 +25,13 @@ the camera-name field.
 	 - https://www.adafruit.com/product/381 
 
  - MotionEye software
-
+     - https://github.com/ccrisan/motioneye
  
  - Rasbian or Linux os for your Raspberry Pi that supports 1 Wire
    Interface over GPIO
 
  
- - A working version of Perl installed
+ - A working version of Python installed
 
 **Software setup**
 
@@ -42,12 +43,20 @@ the camera-name field.
 
     https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/overview
     
-
  - Setup your wired, or wireless networking on the Pi
 
  - Install MotionEye software and configure.
 
  - Test your camera and settings (http://CAMERA-IP:8765/)
 
- **Installing and using send_overlay.pl**
+ **Installing and using pi-overlaysend.sh**
+ 
+  - Copy over the three scripts
+    - get_temp.py (this uses the 1wire interface to get F and C Temperatures)
+    - read_pi_cpu_temp.sh (this gets the PI CPU Temp for the overlay)
+    - pi-overlaysend.sh (the main script, to be run via crontab)
+    
+  - Add a crontab with the time update you would prefer to call pi-overlaysend.sh
+    - /2 * * * * /home/pi/pi-overlaysendscript.sh 2>&1 /dev/null
+    
 
